@@ -7,8 +7,9 @@ def create_app(env='dev'):
     from app.routes import register_routes
 
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_object(config_by_name[env])
-    api = Api(app, title='SignCoach RPI API', version='0.1.0')
+    config = config_by_name[env]
+    app.config.from_object(config)
+    api = Api(app, title='SignCoach RPI API', version='0.1.0', doc=config.SWAGGER_UI)
 
     register_routes(api, app)
 
