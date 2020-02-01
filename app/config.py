@@ -8,6 +8,7 @@ class BaseConfig:
     CONFIG_NAME = 'base'
     USE_MOCK_EQUIVALENCY = False
     DEBUG = False
+    INFO_FILE_LOC = './info.json'
     SWAGGER_UI = True
 
 
@@ -15,7 +16,6 @@ class DevelopmentConfig(BaseConfig):
     CONFIG_NAME = 'dev'
     SECRET_KEY = os.getenv("DEV_SECRET_KEY", "")
     DEBUG = True
-    SWAGGER_UI = True
     TESTING = False
 
 
@@ -23,7 +23,6 @@ class TestingConfig(BaseConfig):
     CONFIG_NAME = 'test'
     SECRET_KEY = os.getenv("TEST_SECRET_KEY", "")
     DEBUG = True
-    SWAGGER_UI = True
     TESTING = True
 
 
@@ -35,6 +34,6 @@ class ProductionConfig(BaseConfig):
     SWAGGER_UI = False
 
 
-EXPORT_CONFIGS: List[BaseConfig] = [DevelopmentConfig, TestingConfig, ProductionConfig]
+EXPORT_CONFIGS: List[Type[BaseConfig]] = [DevelopmentConfig, TestingConfig, ProductionConfig]
 
 config_by_name = {cfg.CONFIG_NAME: cfg for cfg in EXPORT_CONFIGS}

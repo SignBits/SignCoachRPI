@@ -14,7 +14,6 @@ class FingerspellResource(Resource):
     """Operations"""
 
     @accepts(schema=FingerspellSchema, api=api)
-    @responds(schema=FingerspellSchema)
     def post(self) -> None:
         """Submit a sequence for the robot to fingerspell."""
         FingerspellService.submit_sequence(request.parsed_obj)
