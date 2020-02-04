@@ -14,7 +14,7 @@ class Info:
 
     file_location: str
 
-    def __init__(self, file_location: str):
+    def build(self, file_location: str):
         self.file_location = file_location
         with open(file_location, 'r',) as file:
             info = json.load(file)
