@@ -9,4 +9,4 @@ global_info = Info(config.INFO_FILE_LOC)
 app = create_app(config)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

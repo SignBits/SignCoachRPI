@@ -9,7 +9,7 @@ class BaseConfig:
     USE_MOCK_EQUIVALENCY = False
     DEBUG = False
     INFO_FILE_LOC = './info.json'
-    SWAGGER_UI = True
+    SWAGGER_URI = '/'
 
 
 class DevelopmentConfig(BaseConfig):
@@ -31,7 +31,7 @@ class ProductionConfig(BaseConfig):
     SECRET_KEY = os.getenv("PROD_SECRET_KEY", "")
     DEBUG = False
     TESTING = False
-    SWAGGER_UI = False
+    SWAGGER_URI = None
 
 
 EXPORT_CONFIGS: List[Type[BaseConfig]] = [DevelopmentConfig, TestingConfig, ProductionConfig]

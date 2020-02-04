@@ -7,7 +7,7 @@ def create_app(config_object):
 
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_object(config_object)
-    api = Api(app, title='SignCoach RPI API', version='0.1.0', doc=config_object.SWAGGER_UI)
+    api = Api(app, title='SignCoach RPI API', version='0.1.0', doc=config_object.SWAGGER_URI)
 
     register_routes(api, app)
 
