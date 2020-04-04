@@ -1,4 +1,4 @@
-PORT = 5000
+PORT = 10000
 MAGIC = "Pikachu"
 
 from time import sleep
